@@ -41,8 +41,8 @@ export class SupplierDisplay extends Component {
       } else {
          return (
             <div className="m-2">
-               <SupplierEditor
-                  supplier={this.props.supplier}
+               <SupplierTable
+                  suppliers={this.props.suppliers}
                   editCallback={this.startEditing}
                   deleteCallback={this.props.deleteCallback}
                />

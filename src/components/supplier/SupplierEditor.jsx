@@ -14,7 +14,7 @@ export class SupplierEditor extends Component {
    }
 
    handleChange = ev => {
-      ev.persit();
+      ev.persist();
       this.setState(
          state =>
             (state.formData[ev.target.name] =
