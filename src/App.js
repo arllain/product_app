@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ProductsAndSuppliers from './components/ProductsAndSuppliers.jsx';
+import { Provider } from 'react-redux';
+import dataStore from './redux/store';
 
-function App() {
-   return (
-      <div className="App">
-         <ProductsAndSuppliers />
-      </div>
-   );
+export default class App extends Component {
+   render() {
+      return (
+         <Provider store={dataStore}>
+            <ProductsAndSuppliers />
+         </Provider>
+      );
+   }
 }
-
-export default App;
