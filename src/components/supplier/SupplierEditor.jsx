@@ -25,6 +25,7 @@ export class SupplierEditor extends Component {
    };
 
    handleClick = () => {
+      console.log('handle click supplier');
       this.props.saveCallback({
          ...this.state.formData,
          products: this.state.formData.products.map(val => Number(val))

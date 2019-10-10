@@ -6,9 +6,9 @@ export default function(storeData, action) {
       case STORE:
          return {
             ...storeData,
-            [action.dataType]: storeData[action.dataType].filter(
-               p => p.id !== action.payload
-            )
+            [action.dataType]: storeData[action.dataType].concat([
+               action.payload
+            ])
          };
       case UPDATE:
          return {
@@ -24,8 +24,7 @@ export default function(storeData, action) {
                p => p.id !== action.payload
             )
          };
-
       default:
-         return storeData || initialData;
+         return storeData || initialData.modelData;
    }
 }
