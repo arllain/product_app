@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { ProductDisplay } from './product/ProductDisplay';
 import { SupplierDisplay } from './supplier/SupplierDisplay';
+import { IsolatedTable } from './IsolatedTable';
 
 export class Selector extends Component {
    render() {
@@ -17,8 +18,11 @@ export class Selector extends Component {
                <div className="row">
                   <div className="col-2">
                      <div>
-                        <Link className="m-2 btn btn-block btn-primary" to="/">
-                           Default URL
+                        <Link
+                           className="m-2 btn btn-block btn-primary"
+                           to="/isolated"
+                        >
+                           Isolated Data
                         </Link>
                      </div>
                      <div>
@@ -37,21 +41,12 @@ export class Selector extends Component {
                            Suppliers
                         </Link>
                      </div>
-                     <div>
-                        <Link
-                           className="m-2 btn btn-block btn-primary"
-                           to="/old/data"
-                        >
-                           Old Link
-                        </Link>
-                     </div>
                   </div>
                   <div className="col">
                      <Switch>
+                        <Route path="/isolated" component={IsolatedTable} />
                         <Route path="/products" component={ProductDisplay} />
                         <Route path="/suppliers" component={SupplierDisplay} />
-                        <Redirect from="/old/data" to="/suppliers" />
-                        <Redirect to="/products" />
                      </Switch>
                   </div>
                </div>
