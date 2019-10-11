@@ -1,46 +1,43 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { ProductDisplay } from './product/ProductDisplay';
+import { SupplierDisplay } from './supplier/SupplierDisplay';
 
 export class Selector extends Component {
-   constructor(props) {
-      super(props);
-      this.state = {
-         selection: React.Children.toArray(props.children)[0].props.name
-      };
-   }
+   // constructor(props) {
+   //    super(props);
+   //    this.state = {
+   //       selection: React.Children.toArray(props.children)[0].props.name
+   //    };
+   // }
 
-   setSelection = ev => {
-      ev.persist();
-      this.setState({
-         selection: ev.target.name
-      });
-   };
+   // setSelection = ev => {
+   //    ev.persist();
+   //    this.setState({
+   //       selection: ev.target.name
+   //    });
+   // };
 
    render() {
       return (
-         <div className="container-fluid">
-            <div className="row">
-               <div className="col-2">
-                  {React.Children.map(this.props.children, c => (
-                     <button
-                        name={c.props.name}
-                        onClick={this.setSelection}
-                        className={`btn btn-block m-2 ${
-                           this.state.selection === c.props.name
-                              ? 'btn-primary active'
-                              : 'btn-seconday'
-                        }`}
-                     >
-                        {c.props.name}
-                     </button>
-                  ))}
-               </div>
-               <div className="col">
-                  {React.Children.toArray(this.props.children).filter(
-                     c => c.props.name === this.state.selection
-                  )}
+         <Router>
+            <div className="container-fluid">
+               <div className="row">
+                  <div className="col-2">
+                     <div>
+                        <Link to="/products">Products</Link>
+                     </div>
+                     <div>
+                        <Link to="/suppliers">Suppliers</Link>
+                     </div>
+                  </div>
+                  <div className="col">
+                     <Route path="/products" component={ProductDisplay} />
+                     <Route path="/suppliers" component={SupplierDisplay} />
+                  </div>
                </div>
             </div>
-         </div>
+         </Router>
       );
    }
 }
