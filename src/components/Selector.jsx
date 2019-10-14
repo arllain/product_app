@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { ProductDisplay } from './product/ProductDisplay';
 import { SupplierDisplay } from './supplier/SupplierDisplay';
-import { IsolatedTable } from './IsolatedTable';
+import { IsolatedTable } from './isolatedData/IsolatedTable';
+import { IsolatedEditor } from './isolatedData/IsolatedEditor';
 
 export class Selector extends Component {
    render() {
@@ -38,7 +39,15 @@ export class Selector extends Component {
                   </div>
                   <div className="col">
                      <Switch>
-                        <Route path="/isolated" component={IsolatedTable} />
+                        <Route
+                           path="/isolated"
+                           component={IsolatedTable}
+                           exact={true}
+                        />
+                        <Route
+                           path="/isolated/:mode/:id?"
+                           component={IsolatedEditor}
+                        />
                         <Route path="/products" component={ProductDisplay} />
                         <Route path="/suppliers" component={SupplierDisplay} />
                      </Switch>
