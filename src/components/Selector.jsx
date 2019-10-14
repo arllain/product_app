@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-   BrowserRouter as Router,
-   Link,
-   Route,
-   Switch,
-   Redirect
-} from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { ProductDisplay } from './product/ProductDisplay';
 import { SupplierDisplay } from './supplier/SupplierDisplay';
 import { IsolatedTable } from './IsolatedTable';
