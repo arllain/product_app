@@ -4,6 +4,7 @@ import { ProductDisplay } from './product/ProductDisplay';
 import { SupplierDisplay } from './supplier/SupplierDisplay';
 import { IsolatedTable } from './isolatedData/IsolatedTable';
 import { IsolatedEditor } from './isolatedData/IsolatedEditor';
+import { RequestError } from '../webservice/RequestError';
 
 export class Selector extends Component {
    render() {
@@ -47,6 +48,10 @@ export class Selector extends Component {
                         <Route
                            path="/isolated/:mode/:id?"
                            component={IsolatedEditor}
+                        />
+                        <Route
+                           path="/error/:message"
+                           component={RequestError}
                         />
                         <Route path="/products" component={ProductDisplay} />
                         <Route path="/suppliers" component={SupplierDisplay} />
